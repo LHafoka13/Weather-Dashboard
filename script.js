@@ -2,9 +2,6 @@
 var cityInput = document.getElementById("city-input");
 var searchBtn = document.getElementById("search-btn");
 var savedSearchesEl = document.getElementById("saved-searches");
-// var cityButtons = document.querySelectorAll("button")
-// var savedCities = document.getElementById("persist-city");
-// var currentDate = moment().subtract(10, 'days').calendar()
 var displayCityName = document.getElementById("city-name")
 var currentIcon = document.getElementById("current-icon");
 var currentTemp = document.getElementById("current-temp");
@@ -83,7 +80,7 @@ function currentWeather (event) {
                  console.log(unixCode)
                  currentDate = new Date(unixCode).toLocaleDateString("en-US")
                  console.log(currentDate)
-                 displayCityName.innerHTML = userCity; 
+                 displayCityName.innerHTML = userCity + " " + currentDate
                  var currentIconCode = data.weather[0].icon
                   var currentIconUrl = `http://openweathermap.org/img/w/${currentIconCode}.png`
                   currentIcon.src = currentIconUrl
