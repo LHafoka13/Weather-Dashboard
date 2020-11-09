@@ -51,7 +51,9 @@ if (localStorage.getItem("userCity")) {
 
 function addToArray () {
     var userCity = cityInput.value.trim()
-    cities.push(JSON.stringify(userCity));
+    var addCityArray = [];
+    addCityArray.push(userCity)
+    cities = cities.concat(addCityArray);
     localStorage.setItem("userCity", cities);
 }
 
@@ -76,9 +78,9 @@ function currentWeather (event) {
               response.json().then(function (data){
                   console.log(data);
                 //   displayCityName.innerHTML = data.name + currentDate
-                 var unixCode = data.coord.dt
+                 var unixCode = data.dt
                  console.log(unixCode)
-                 currentDate = new Date(unixCode).toLocaleDateString("en-US")
+                 currentDate = new Date(unixCode * 1000).toLocaleDateString("en-US")
                  console.log(currentDate)
                  displayCityName.innerHTML = userCity + " " + currentDate
                  var currentIconCode = data.weather[0].icon
