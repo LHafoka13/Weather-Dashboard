@@ -39,6 +39,7 @@ if (localStorage.getItem("userCity")) {
     cities = localStorage.getItem("userCity");
     var cityHistory = [];
     cityHistory = cities.split(",");
+    cities = cityHistory
 
     for (var i = 0; i < cityHistory.length; i++) {
         var persistCity = document.createElement("button");
@@ -51,10 +52,11 @@ if (localStorage.getItem("userCity")) {
 
 function addToArray () {
     var userCity = cityInput.value.trim()
-    var addCityArray = [];
+    var addCityArray = cities
     addCityArray.push(userCity)
-    cities = cities.concat(addCityArray);
-    localStorage.setItem("userCity", cities);
+    console.log("add to citty array", addCityArray);
+    console.log("cities array", cities);
+    localStorage.setItem("userCity", addCityArray);
 }
 
 
